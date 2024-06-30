@@ -1,76 +1,80 @@
-// 1 ~ 100 사이의 랜덤 숫자 한 개를 만듦
-let randomNum = Math.floor((Math.random() * 100) + 1); 
-console.log(randomNum);
-
-// 유저가 선택한 숫자 변수
-let userNum = 0;
-
-// 버튼 횟수를 카운트 할 변수
-let count = 5;
-
-// 유저가 입력한 값을 담을 배열
-let userNumList = [];
-
-
-// 남은 기회 카운트
-function countFunc (){
-  count -= 1;
-  document.querySelector('.count').innerHTML = count;
-  console.log(count);
-
-  // 남은 기회가 0이 되면 go 버튼 비활성화
-  if (count == 0){
-    document.querySelector('.go-btn').disabled = true;
-    document.querySelector('.inner-text').innerHTML = "게임 오버!"; // 실행 안됨
-  }
+// 1 ~ 100 사이의 랜덤 숫자 생성 함수
+let randomNum = 0;
+function makeRandomNum (){
+  randomNum = Math.floor((Math.random() * 100) + 1);
+  return randomNum;
 }
+console.log("정답 :", makeRandomNum());
 
-// 유저가 입력한 값 체크
-function checkUserNum (){
-  userNum = document.getElementById('inputNum').value;
+
+let userNum = 0; // 유저가 선택한 숫자 변수
+let userNumList = []; // 유저가 입력한 값을 담을 배열
+let userInput = document.getElementById('inputNum');
+let count = 5 // 버튼 횟수를 카운트 할 변수
+let countArea = document.querySelector('.count'); // html 유저 카운트 횟수
+let goBtn = document.querySelector('.go-btn');  // go-btn
+let resetBtn = document.querySelector('.reset-btn'); // rest-btn
+let resultText = document.querySelector('.inner-text'); // 결과창 텍스트
+
+
+function play (){
+  userNum = userInput.value;
   console.log(userNum);
 
   if (userNum < 0 || userNum > 100){
-    document.querySelector('.inner-text').innerHTML = "1~100 사이의 값을 입력하세요";
-  } else if (userNum == randomNum){
-    document.querySelector('.inner-text').innerHTML = "정답!";
-    document.querySelector('.go-btn').disabled = true;
-  } else if (userNum < randomNum){
-    document.querySelector('.inner-text').innerHTML = "Up!";
-  } else if (userNum > randomNum){
-    document.querySelector('.inner-text').innerHTML = "Down!";
+    resultText.innerHTML = "1~100 사이의 값을 입력하세요";
+    return;
   }
-}
 
-// 숫자 중복 검사
-function checkDuplicate (){
   if (userNumList.includes(userNum)){
-    console.log('이미 값이 있음');
-    document.querySelector('.inner-text').innerHTML = "이미 입력한 값입니다.";
+    resultText.innerHTML = "이미 입력한 숫자입니다. 다른 숫자를 입력하세요";
+    return;
   }
-}
-
-document.querySelector('.go-btn').addEventListener('click', function(){
-  // 유저가 입력한 값 배열에 담기
+  
   userNumList.push(userNum);
   console.log(userNumList);
 
-  countFunc(); // 클릭 횟수 count 함수
-  checkUserNum(); // 유저 정답 확인 함수
-  checkDuplicate();
+  count -= 1;
+  countArea.innerHTML = count;
+
+  if (userNum == randomNum){
+    resultText.innerHTML = "정답!";
+    goBtn.disabled = true;
+  } else if (userNum < randomNum){
+    resultText.innerHTML = "Up!";
+  } else if (userNum > randomNum){
+    resultText.innerHTML = "Down!";
+  }
+
+  if (count == 0){
+    resultText.innerHTML = "게임 오버";
+    goBtn.disabled = true;
+  }
+}
+
+goBtn.addEventListener('click', function(){
+  play();
+});
+
+// 인풋 창 클릭시 숫자 지워짐
+userInput.addEventListener('focus', function(){
+  userInput.value = "";
 });
 
 
 // 리셋
 function reset (){
+  console.log("정답 :", makeRandomNum());
   count = 5;
-  document.querySelector('.count').innerHTML = count;
+  countArea.innerHTML = count;
   userNumList = [];
-  document.querySelector('.inner-text').innerHTML = "과연 당신의 운명은?";
+  resultText.innerHTML = "과연 당신의 운명은?";
+  userInput.value = '';
+  goBtn.disabled = false;
   console.log(userNumList);
 }
 
 // 리셋 버튼 누르면 초기화
-document.querySelector('.reset-btn').addEventListener('click', function(){
+resetBtn.addEventListener('click', function(){
   reset();
 });
