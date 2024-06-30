@@ -4,21 +4,175 @@
 }
 body {
   font-family: "Black And White Picture", system-ui;
+  background-image: url(./image/img01.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: left;
+  background-color: #eee;
+}
+
+.background-text {
+  position: absolute;
+  bottom: 270px;
+  left: 250px;
+  font-size: 30px;
+  text-align: left;
 }
 
 .out-container {
   /* background-color: #eee; */
-  background-image: url(./image/img01\ 2차\ 편집.png);
-  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   height: 100vh;
 }
 
 .inner-container {
-  background-color: #fff;
-  border: 5px solid gray;
-  padding: 30px;
+  background-color: rgba(247, 243, 242, 0.7);;
+  border: 10px solid #ccc;
+  padding: 80px;
   text-align: center;
+  border-radius: 25px;
+  margin-top: 90px;
+  z-index: 3;
+}
+
+.title-box {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 65px;
+}
+
+.sub-title {
+  font-size: 35px;
+}
+
+.text-box {
+  margin-bottom: 20px;
+}
+
+.inner-text {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.inner-count {
+  font-size: 30px;
+  color: red;
+}
+
+#inputNum {
+  font-size: 20px;
+  height: 50px;
+  text-align: center;
+  border-radius: 8px;
+  border: 2px solid gray;
+}
+
+.btn {
+  width: 65px;
+  height: 50px;
+  vertical-align: bottom;
+  font-size: 23px;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.go-btn {
+  background-color: green;
+}
+
+.go-btn:active {
+  background-color: #1a6735;
+}
+
+.reset-btn {
+  background-color: orange;
+  width: 85px;
+}
+
+.reset-btn:active {
+  background-color: #c78142;
+}
+
+
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .inner-container {
+    padding: 65px;
+  }
+
+  .title {
+    font-size: 38px;
+  }
+
+  .sub-title {
+    font-size: 30px;
+  }
+
+  .inner-text {
+    font-size: 25px;
+  }
+
+  .inner-count {
+    font-size: 25px;
+  }
+
+  #inputNum {
+    font-size: 15px;
+    height: 35px;
+    display: block;
+    margin: 0 auto 5px;
+  }
+
+  .background-text { 
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .inner-container {
+    padding: 40px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .sub-title {
+    font-size: 25px;
+  }
+
+  .inner-text {
+    font-size: 20px;
+  }
+
+  .inner-count {
+    font-size: 20px;
+  }
+
+  #inputNum {
+    font-size: 15px;
+    height: 35px;
+    display: block;
+    margin: 0 auto 5px;
+  }
+
+  .btn {
+    font-size: 19px;
+    height: 35px;
+  }
+
+  .background-text {
+    font-size: 20px;
+    left: 50px;
+    bottom: 177px;
+  }
 }
