@@ -13,10 +13,11 @@ body {
 
 .background-text {
   position: absolute;
-  bottom: 270px;
-  left: 250px;
+  bottom: 135px;
+  left: 390px;
   font-size: 30px;
   text-align: left;
+  z-index: 5;
 }
 
 .out-container {
@@ -30,7 +31,7 @@ body {
 .inner-container {
   background-color: rgba(247, 243, 242, 0.7);;
   border: 10px solid #ccc;
-  padding: 80px;
+  padding: 50px 80px;
   text-align: center;
   border-radius: 25px;
   margin-top: 90px;
@@ -63,6 +64,10 @@ body {
   color: red;
 }
 
+.input-box {
+  margin-bottom: 20px;
+}
+
 #inputNum {
   font-size: 20px;
   height: 50px;
@@ -93,6 +98,11 @@ body {
   background-color: #1a6735;
 }
 
+.go-btn:disabled {
+  background-color: gray;
+  cursor: auto;
+}
+
 .reset-btn {
   background-color: orange;
   width: 85px;
@@ -100,6 +110,19 @@ body {
 
 .reset-btn:active {
   background-color: #c78142;
+}
+
+.result-btn {
+  color: #000;
+  background-color: #ccc;
+  font-size: 18px;
+  width: 415px;
+  height: 132px;
+}
+
+.result-btn:active {
+  background-color: #686D76;
+  color: #fff;
 }
 
 
@@ -133,13 +156,14 @@ body {
   }
 
   .background-text { 
-    font-size: 25px;
+    font-size: 20px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .inner-container {
     padding: 40px;
+    margin-top: 30px;
   }
 
   .title {
@@ -170,9 +194,16 @@ body {
     height: 35px;
   }
 
+  .result-btn {
+    font-size: 15px;
+    height: 100px;
+    width: 275px;
+  }
+
   .background-text {
     font-size: 20px;
-    left: 50px;
-    bottom: 177px;
+    left: 37px;
+    bottom: 165px;
+    text-align: right;
   }
 }

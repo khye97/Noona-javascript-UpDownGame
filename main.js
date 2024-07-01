@@ -10,11 +10,13 @@ console.log("정답 :", makeRandomNum());
 let userNum = 0; // 유저가 선택한 숫자 변수
 let userNumList = []; // 유저가 입력한 값을 담을 배열
 let userInput = document.getElementById('inputNum');
-let count = 5 // 버튼 횟수를 카운트 할 변수
+let count = 3; // 버튼 횟수를 카운트 할 변수
 let countArea = document.querySelector('.count'); // html 유저 카운트 횟수
 let goBtn = document.querySelector('.go-btn');  // go-btn
 let resetBtn = document.querySelector('.reset-btn'); // rest-btn
 let resultText = document.querySelector('.inner-text'); // 결과창 텍스트
+let resultBtn = document.querySelector('.result-btn'); // 정답 확인 버튼
+//let gameOver = false;
 
 
 function play (){
@@ -47,7 +49,7 @@ function play (){
   }
 
   if (count == 0){
-    resultText.innerHTML = "게임 오버";
+    resultText.innerHTML = `너 탈락 | 정답 : ${randomNum}`;
     goBtn.disabled = true;
   }
 }
@@ -65,10 +67,10 @@ userInput.addEventListener('focus', function(){
 // 리셋
 function reset (){
   console.log("정답 :", makeRandomNum());
-  count = 5;
+  count = 3;
   countArea.innerHTML = count;
   userNumList = [];
-  resultText.innerHTML = "과연 당신의 운명은?";
+  resultText.innerHTML = "과연 피해갈 수 있을까?";
   userInput.value = '';
   goBtn.disabled = false;
   console.log(userNumList);
@@ -77,4 +79,8 @@ function reset (){
 // 리셋 버튼 누르면 초기화
 resetBtn.addEventListener('click', function(){
   reset();
+});
+
+resultBtn.addEventListener('click', function(){
+  resultText.innerHTML = `정답 : ${randomNum}`;
 });
