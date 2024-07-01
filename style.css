@@ -13,11 +13,11 @@ body {
 
 .background-text {
   position: absolute;
-  bottom: 135px;
-  left: 440px;
-  font-size: 30px;
-  text-align: left;
-  z-index: 5;
+  bottom: 10%;
+  left: 3%;
+  font-size: 20px;
+  text-align: right;
+  /* z-index: 5; */
 }
 
 .out-container {
@@ -65,7 +65,7 @@ body {
 }
 
 .input-box {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 #inputNum {
@@ -117,7 +117,7 @@ body {
   background-color: #ccc;
   font-size: 18px;
   width: 415px;
-  height: 132px;
+  height: 65px;
 }
 
 .result-btn:active {
@@ -129,7 +129,7 @@ body {
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .inner-container {
-    padding: 65px;
+    padding: 35px;
   }
 
   .title {
@@ -157,6 +157,8 @@ body {
 
   .background-text { 
     font-size: 20px;
+    bottom: 5%;
+    left: 8%;
   }
 }
 
@@ -196,14 +198,13 @@ body {
 
   .result-btn {
     font-size: 15px;
-    height: 100px;
+    height: 60px;
     width: 275px;
   }
 
   .background-text {
     font-size: 20px;
-    left: 37px;
-    bottom: 165px;
     text-align: right;
+    left: 10%;
   }
 }
