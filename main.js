@@ -48,7 +48,7 @@ function play (){
     resultText.innerHTML = "Down!";
   }
 
-  if (count == 0){
+  if (count == 0 && userNum != randomNum){
     resultText.innerHTML = `너 탈락 | 정답 : ${randomNum}`;
     goBtn.disabled = true;
   }
